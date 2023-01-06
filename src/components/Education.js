@@ -1,5 +1,5 @@
 // import './styles/App.css'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 const Education = () => {
     const [details, setDetails] = useState({
@@ -38,7 +38,7 @@ const Education = () => {
                     name = 'date'
                     type = 'date'
                     onChange = {handleChange} />
-            <button type = 'submit'> Submit </button>
+            <button type = 'submit'> Save </button>
         </form>
     )
 }

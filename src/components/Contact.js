@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 const Contact = () => {
     const [details, setDetails] = useState({
         name: '',
+        address: '',
         phone: '',
         email: '',
     });
@@ -27,6 +28,11 @@ const Contact = () => {
                     name = 'name'
                     type = 'text'
                     onChange = {handleChange} />
+            <label> Address: </label>
+                <input
+                    name = 'address'
+                    type = 'text'
+                    onChange = {handleChange} />
             <label> Phone: </label>
                 <input
                     name = 'phone'
@@ -37,7 +43,7 @@ const Contact = () => {
                     name = 'email'
                     type = 'email'
                     onChange = {handleChange} />
-            <button type = 'submit'> Submit </button>
+            <button type = 'submit'> Save </button>
         </form>
     )
 }

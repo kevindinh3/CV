@@ -1,5 +1,5 @@
 // import './styles/App.css'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 const Experience = () => {
     const [details, setDetails] = useState({
@@ -44,7 +44,7 @@ const Experience = () => {
                     name = 'end'
                     type = 'date'
                     onChange = {handleChange} />
-            <button type = 'submit'> Submit </button>
+            <button type = 'submit'> Save </button>
         </form>
     )
 }
