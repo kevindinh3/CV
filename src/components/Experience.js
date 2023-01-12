@@ -1,52 +1,58 @@
-// import './styles/App.css'
-import React, { useState } from 'react'
+import React from 'react';
 
-const Experience = () => {
-    const [details, setDetails] = useState({
-        company: '',
-        position: '',
-        start: '',
-        end: '',
-    });
+class Experience extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            company: '',
+            position: '',
+            start: '',
+            end: '',
+        };
 
-    const handleChange = (event) => {
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange = (event) => {
         const {name, value} = event.target;
-        setDetails((prev) => {
+        this.setState((prev) => {
             return{...prev, [name]: value}
         })
     };
 
-    const handleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         // print this on new page
-        console.log(details);
     }
-
-    return (
-        <form onSubmit = {handleSubmit} >
-            <label> Company: </label>
-                <input
-                    name = 'company'
-                    type = 'text'
-                    onChange = {handleChange} />
-            <label> Position Title: </label>
-                <input
-                    name = 'position'
-                    type = 'text'
-                    onChange = {handleChange} />
-            <label> Start Date: </label>
-                <input
-                    name = 'start'
-                    type = 'date'
-                    onChange = {handleChange} />
-            <label> End Date: </label>
-                <input
-                    name = 'end'
-                    type = 'date'
-                    onChange = {handleChange} />
-            <button type = 'submit'> Save </button>
-        </form>
-    )
+    
+    render() {
+        return (
+            <form className = "Experience" onSubmit = {this.handleSubmit} >
+                <label> Company: </label>
+                    <input
+                        name = 'company'
+                        type = 'text'
+                        onChange = {this.handleChange} />
+                <label> Position: </label>
+                    <input
+                        name = 'position'
+                        type = 'text'
+                        onChange = {this.handleChange} />
+                <label> Start: </label>
+                    <input
+                        name = 'start'
+                        type = 'date'
+                        onChange = {this.handleChange} />
+                <label> End: </label>
+                    <input
+                        name = 'end'
+                        type = 'date'
+                        onChange = {this.handleChange} />
+                <button type = 'submit'> Save </button>
+            </form>
+        )
+    }
 }
 
 

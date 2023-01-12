@@ -1,46 +1,52 @@
-// import './styles/App.css'
-import React, { useState } from 'react'
+import React from 'react';
 
-const Education = () => {
-    const [details, setDetails] = useState({
-        school: '',
-        title: '',
-        date: '',
-    });
+class Education extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            school: '',
+            title: '',
+            date: ''
+        };
 
-    const handleChange = (event) => {
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange = (event) => {
         const {name, value} = event.target;
-        setDetails((prev) => {
+        this.setState((prev) => {
             return{...prev, [name]: value}
         })
     };
 
-    const handleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         // print this on new page
-        console.log(details);
     }
-
-    return (
-        <form onSubmit = {handleSubmit} >
-            <label> School: </label>
-                <input
-                    name = 'school'
-                    type = 'text'
-                    onChange = {handleChange} />
-            <label> Title of Study: </label>
-                <input
-                    name = 'title'
-                    type = 'text'
-                    onChange = {handleChange} />
-            <label> Date of Study: </label>
-                <input
-                    name = 'date'
-                    type = 'date'
-                    onChange = {handleChange} />
-            <button type = 'submit'> Save </button>
-        </form>
-    )
+    
+    render() {
+        return (
+            <form className = "Education" onSubmit = {this.handleSubmit} >
+                <label> School: </label>
+                    <input
+                        name = 'school'
+                        type = 'text'
+                        onChange = {this.handleChange} />
+                <label> Title of Study: </label>
+                    <input
+                        name = 'title'
+                        type = 'text'
+                        onChange = {this.handleChange} />
+                <label> Graduation Date: </label>
+                    <input
+                        name = 'date'
+                        type = 'date'
+                        onChange = {this.handleChange} />
+                <button type = 'submit'> Save </button>
+            </form>
+        )
+    }
 }
 
 

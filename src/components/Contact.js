@@ -1,51 +1,58 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Contact = () => {
-    const [details, setDetails] = useState({
-        name: '',
-        address: '',
-        phone: '',
-        email: '',
-    });
+class Contact extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            address: '',
+            phone: '',
+            email: '',
+        };
 
-    const handleChange = (event) => {
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange = (event) => {
         const {name, value} = event.target;
-        setDetails((prev) => {
+        this.setState((prev) => {
             return{...prev, [name]: value}
         })
     };
 
-    const handleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         // print this on new page
-        console.log(details);
     }
-
-    return (
-        <form className = "Contact" onSubmit = {handleSubmit} >
-            <label> Name: </label>
-                <input
-                    name = 'name'
-                    type = 'text'
-                    onChange = {handleChange} />
-            <label> Address: </label>
-                <input
-                    name = 'address'
-                    type = 'text'
-                    onChange = {handleChange} />
-            <label> Phone: </label>
-                <input
-                    name = 'phone'
-                    type = 'number'
-                    onChange = {handleChange} />
-            <label> Email: </label>
-                <input
-                    name = 'email'
-                    type = 'email'
-                    onChange = {handleChange} />
-            <button type = 'submit'> Save </button>
-        </form>
-    )
+    
+    render() {
+        return (
+            <form className = "Contact" onSubmit = {this.handleSubmit} >
+                <label> Name: </label>
+                    <input
+                        name = 'name'
+                        type = 'text'
+                        onChange = {this.handleChange} />
+                <label> Address: </label>
+                    <input
+                        name = 'address'
+                        type = 'text'
+                        onChange = {this.handleChange} />
+                <label> Phone: </label>
+                    <input
+                        name = 'phone'
+                        type = 'number'
+                        onChange = {this.handleChange} />
+                <label> Email: </label>
+                    <input
+                        name = 'email'
+                        type = 'email'
+                        onChange = {this.handleChange} />
+                <button type = 'submit'> Save </button>
+            </form>
+        )
+    }
 }
 
 

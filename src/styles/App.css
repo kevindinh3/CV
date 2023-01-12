@@ -1,3 +1,15 @@
 .Contact {
     color: blue;
+    display:grid;
 }
+
+.Experience {
+    color: green;
+    display:grid;
+}
+
+.Education {
+    color: red;
+    display:grid;
+}
+
